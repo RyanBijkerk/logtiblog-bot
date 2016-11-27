@@ -74,7 +74,7 @@ namespace logitblog_bot.Services
         {
             return await Task.Run(() =>
             {
-                var messageString = "Hi, I'm the Logit Blog Bot. \n\n";
+                var messageString = "Hi, I'm the Logit Bot. \n\n";
                 messageString += "Ask me anything about Logit Blog!";
 
                 return messageString;

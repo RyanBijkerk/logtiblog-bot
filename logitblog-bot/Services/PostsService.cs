@@ -34,7 +34,7 @@ namespace logitblog_bot.Services
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var path = $"api/get_search_results/?search={search}";
+            var path = $"api/get_search_results/?search={search}&count=30";
             var posts = new Rootobject();
             HttpResponseMessage response = await client.GetAsync(path);
             if (response.IsSuccessStatusCode)
