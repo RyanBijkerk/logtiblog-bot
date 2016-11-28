@@ -31,8 +31,18 @@ namespace logitblog_bot.Services
                 {
                     switch (entity.intents[0].intent)
                     {
-                        case "Introduction":
+                        case "blog.intro":
                             messageString = await CreateIntroMessage();
+
+                            break;
+
+                        case "blog.owner":
+                            messageString = await CreateOwnerMessage();
+
+                            break;
+
+                        case "blog.authors":
+                            messageString = await CreateAuthorsMessage();
 
                             break;
 
@@ -82,6 +92,28 @@ namespace logitblog_bot.Services
 
         }
 
+        public async Task<string> CreateOwnerMessage()
+        {
+            return await Task.Run(() =>
+            {
+                var messageString = "Logit Blog is created by Ryan Bijkerk November 2010. \n\n";
+                messageString += "The main goal of Logit Blog is to share experience with the community.";
+
+                return messageString;
+            });
+
+        }
+
+        public async Task<string> CreateAuthorsMessage()
+        {
+            return await Task.Run(() =>
+            {
+                var messageString = "The main author is Ryan Bijkerk but sometimes guest are publishing at Logit Blog. \n\n";
+                return messageString;
+            });
+
+        }
+
         public async Task<string> CreateCountPostMessage(Rootobject postList)
         {
             return await Task.Run(() =>
@@ -89,10 +121,11 @@ namespace logitblog_bot.Services
                 string messageString = null;
                 if (postList.posts != null)
                 {
-                    messageString = $"Yes! {postList.posts.Count()}\n\n";
+                    messageString = $"Here are the details of the latest publication:\n\n";
 
                     foreach (var post in postList.posts)
                     {
+                        messageString += $"Publised on {post.date} \n\n";
                         messageString += $"{post.title} \n\n";
                         messageString += $"{post.url} \n\n";
                     }

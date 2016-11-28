@@ -15,7 +15,7 @@ namespace logitblog_bot.Services
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var path = "api/get_posts/";
+            var path = "api/get_posts?count=1";
             Rootobject post = new Rootobject();
 
             HttpResponseMessage response = await client.GetAsync(path);
