@@ -47,8 +47,8 @@ namespace logitblog_bot.Services
                             break;
 
                         case "blog.post":
-                            var packageListCount = await _postsService.GetPosts();
-                            messageString = await CreateCountPostMessage(packageListCount);
+                            var post = await _postsService.GetPosts();
+                            messageString = await CreateCountPostMessage(post);
 
                             break;
 
@@ -59,8 +59,8 @@ namespace logitblog_bot.Services
                                 break;
                             }
 
-                            var postSearch = await _postsService.SearchPost(entity.entities[0].entity);
-                            messageString = await CreateSearchPostMessage(postSearch);
+                            var postsSearch = await _postsService.SearchPosts(entity.entities[0].entity);
+                            messageString = await CreateSearchPostMessage(postsSearch);
 
                             break;
 

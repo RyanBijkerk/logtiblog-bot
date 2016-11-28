@@ -27,7 +27,7 @@ namespace logitblog_bot.Services
             return post;
         }
 
-        public async Task<Rootobject> SearchPost(string search)
+        public async Task<Rootobject> SearchPosts(string search)
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://www.logitblog.com/");
