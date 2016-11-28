@@ -59,7 +59,7 @@ namespace logitblog_bot.Services
                                 break;
                             }
 
-                            var postSearch = await _postsService.SeachPost(entity.entities[0].entity);
+                            var postSearch = await _postsService.SearchPost(entity.entities[0].entity);
                             messageString = await CreateSearchPostMessage(postSearch);
 
                             break;
