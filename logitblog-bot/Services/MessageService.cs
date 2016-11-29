@@ -24,7 +24,7 @@ namespace logitblog_bot.Services
             var messageString = "";
             if (activity.Type == ActivityTypes.Message)
             {
-                messageString = "Sorry, I am not getting you...";
+                messageString = "Sorry I don't understand...";
 
                 var entity = await _luisService.GetEntity(activity.Text);
                 if (entity.intents.Any())
@@ -65,7 +65,7 @@ namespace logitblog_bot.Services
                             break;
 
                         default:
-                            messageString = "Sorry, I am not getting you...";
+                            messageString = "Sorry I don't understand...";
 
                             break;
                     }
