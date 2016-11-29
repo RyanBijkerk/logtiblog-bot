@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Services.Description;
 using logitblog_bot.Models;
 using Microsoft.Bot.Connector;
 
@@ -179,6 +180,9 @@ namespace logitblog_bot.Services
                 }
                 else if (message.Type == ActivityTypes.Ping)
                 {
+                    var messageString = "ping";
+                    return messageString;
+
                 }
 
                 return null;
