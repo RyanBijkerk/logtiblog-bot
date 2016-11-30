@@ -181,8 +181,8 @@ namespace logitblog_bot.Services
                 else if (message.Type == ActivityTypes.Ping)
                 {
                     var messageString = "ping";
-                    return messageString;
-
+                    message.Type = "ping";
+                    return message.CreateReply(messageString);
                 }
 
                 return null;
